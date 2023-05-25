@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gqpt_for_llama"
+version = "0.1.0"
+description = ""
+authors = [{ name = "some-author", email = "you@example.com" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "safetensors == 0.3.0",
+    "datasets == 2.10.1",
+    "sentencepiece",
+    "transformers @ git+https://github.com/huggingface/transformers",
+    "accelerate == 0.17.1",
+    "triton==2.0.0",
+    "texttable",
+    "toml",
+    "numpy",
+    "protobuf == 3.20.2",
+]
+
+[project.optional-dependencies]
+dev = ["black", "ruff", "pre-commit"]
+
+[tool.setuptools]
+packages = ["gqpt_for_llama"]
+
+[tool.black]
+line-length = 120
+target_version = ["py38", "py39", "py310"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
